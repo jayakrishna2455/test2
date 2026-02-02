@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main   # Source branch (change if needed)
+  workflow_dispatch: 
 
 jobs:
   sync:
