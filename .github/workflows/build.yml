@@ -27,8 +27,8 @@ jobs:
 
     - name: Add Target Repo
       run: |
-        git remote add target https://github.com/jayakrishna2455/test2.git
+        git remote add deploy https://github.com/jayakrishna2455/test2.git
 
     - name: Push to Target Branch
       run: |
-        git push target HEAD:release --force
+        git push deploy HEAD:release2 
