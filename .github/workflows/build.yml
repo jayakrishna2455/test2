@@ -27,4 +27,4 @@ jobs:
 
     - name: Push to Target Branch
       run: |
-        git push target main:release --force
+        git push target HEAD:release --force
