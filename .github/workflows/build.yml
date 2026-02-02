@@ -21,6 +21,16 @@ jobs:
         git config user.name "github-actions"
         git config user.email "github-actions@github.com"
 
+    - name: Check Token Exists
+      run: |
+        if [ -z "${{ secrets.TARGET_REPO_TOKEN }}" ]; then
+          echo "❌ TOKEN IS EMPTY"
+          exit 1
+        else
+          echo "✅ TOKEN FOUND"
+        fi
+
+
     - name: Add Target Repo
       run: |
         git remote add target https://x-access-token:${{ secrets.TARGET_REPO_TOKEN }}@github.com/jayakrishna2455/test2.git
