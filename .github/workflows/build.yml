@@ -1,0 +1,29 @@
+name: Sync to Another Repo
+
+on:
+  push:
+    branches:
+      - main   # Source branch (change if needed)
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Source Repo
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Configure Git
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+
+    - name: Add Target Repo
+      run: |
+        git remote add target https://x-access-token:${{ secrets.TARGET_REPO_TOKEN }}@github.com/USERNAME/TARGET_REPO.git
+
+    - name: Push to Target Branch
+      run: |
+        git push target main:release --force
