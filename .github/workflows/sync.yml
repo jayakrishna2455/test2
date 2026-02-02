@@ -31,4 +31,5 @@ jobs:
 
     - name: Push to Target Branch
       run: |
+        echo "hi"
         git push target HEAD:release --force
