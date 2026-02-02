@@ -32,6 +32,8 @@ jobs:
     - name: Sync with Target Branch
       run: |
         rm -rf .github
+        git add .
+        git commit -m "test"
         git fetch deploy release2 || true
         git checkout -B temp-sync
         git rebase deploy/release2 || true
